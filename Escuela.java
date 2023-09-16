@@ -31,9 +31,6 @@ public class Escuela {
             // como el promedio de edad, la nota promedio y el número total de estudiantes.
             System.out.println("9.-Ordernar estudiantes por nombre");
             System.out.println("10.-Ordenar estudiante por nombre, edad, nota promedio");
-            System.out.println("11.-ordenar estudiante por edad");
-            System.out.println("12.-ordenar estudiante por nota promedio");
-            System.out.println("13.-Filtrar estudiantes por");
             System.out.println("---------------------------------------------------------");
             opcion = scanner.nextInt();
             System.out.println("Ingrese 0 para salir del programa");
@@ -114,6 +111,28 @@ public class Escuela {
 
                     if (!encontrado) {
                         System.out.println("No se encontró un estudiante con el nombre " + nombreBuscado);
+                    }
+                    break;
+                case 8:
+
+                    break;
+                case 9:
+                    break;
+                case 10:
+                    System.out.println("Ingrese la edad mínima:");
+                    int edadMinima = scanner.nextInt();
+                    System.out.println("Ingrese la nota promedio mínima:");
+                    double notaPromedioMinima = scanner.nextDouble();
+
+                    for (int i = 0; i < numEstudiantes; i++) {
+                        Estudiante estudiante = estudiantes[i];
+                        if (estudiante.getEdad() > edadMinima && estudiante.getNotapromedio() > notaPromedioMinima) {
+                            System.out.println("Estudiante que cumple con los criterios:");
+                            System.out.println("Nombre: " + estudiante.getNombre());
+                            System.out.println("Edad: " + estudiante.getEdad());
+                            System.out.println("Nota promedio: " + estudiante.getNotapromedio());
+                            System.out.println("Número de cursos aprobados: " + estudiante.getNum_cursosAprobados());
+                        }
                     }
                     break;
             }
