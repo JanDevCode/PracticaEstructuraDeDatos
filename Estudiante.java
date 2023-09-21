@@ -5,7 +5,7 @@ public class Estudiante {
     private int edad;
     private double notapromedio;
     private int num_cursosAprobados;
-
+    
     public Estudiante(String nombre, int edad, double notapromedio, int num_cursosAprobados) {
         this.nombre = nombre;
         this.edad = edad;

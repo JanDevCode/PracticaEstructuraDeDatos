@@ -23,12 +23,9 @@ public class Escuela {
             System.out.println("3.- Agregar profesor");
             System.out.println("4.- Agregar asignatura a un estidante");
             System.out.println("5.-Mostrar lista de estudiantes");
-            System.out.println("6.-Mostrar lista de asignaturas");// Se debera mostrar con el nombre del profesor que
-                                                                  // imparte la asignatura
+            System.out.println("6.-Mostrar lista de asignaturas");
             System.out.println("7.-Buscar estudiante por nombre");
-            System.out.println("8.- Calcular estadisticas ");//
-            // El programa calculará estadísticas sobre la población de estudiantes,
-            // como el promedio de edad, la nota promedio y el número total de estudiantes.
+            System.out.println("8.- Calcular estadisticas ");
             System.out.println("9.-Ordernar estudiantes por nombre");
             System.out.println("10.-Ordenar estudiante por nombre, edad, nota promedio");
             System.out.println("---------------------------------------------------------");
@@ -56,7 +53,6 @@ public class Escuela {
                         System.out.println("No hay espacio para mas asignaturas");
                     }
                     break;
-
                 case 3:
                     System.out.println("usted va a registrar un profesor");
                     if (numProfesores < profesores.length) {
@@ -68,11 +64,10 @@ public class Escuela {
                     }
                     break;
                 case 4:
-                    // Esto se hara cuando ya se pueda mostrar la lista de estudiantes y materias
-                    break;
 
+                    break;
                 case 5:
-                    System.out.println("---------------------------------------------------------");
+                    System.out.println("------MOSTRANDO--LISTA-DE-ESTUDIANTES---------");
                     for (int i = 0; i < numEstudiantes; i++) {
                         Estudiante estudiante = estudiantes[i];
                         System.out.println("Estudiante " + (i + 1) + ":");
@@ -92,6 +87,7 @@ public class Escuela {
                         System.out.println("Asignatura: " + asignatura.getProfesor());
                         System.out.println("------------------------------------------------------------");
                     }
+                    break;
                 case 7:
                     System.out.println("Ingrese el nombre del estudiante que busca:");
                     String nombreBuscado = scanner.next();
@@ -114,9 +110,37 @@ public class Escuela {
                     }
                     break;
                 case 8:
-
+                    System.out.println("calcular");
                     break;
                 case 9:
+                    // Ordena el arreglo usando Bubble Sort. Sacado de la pagina de algoritmos
+                    // comunes. ESTUDIAR.
+                    //Este arreglo solo es para ordenar los datos del los usuarios
+                    for (int i = 0; i < estudiantes.length - 1; i++) {
+                        for (int j = 0; j < estudiantes.length - i - 1; j++) {
+                            // Verifica si los objetos Estudiante son null antes de compararlos
+                            if (estudiantes[j] != null && estudiantes[j + 1] != null) {
+                                if (estudiantes[j].getNombre().compareTo(estudiantes[j + 1].getNombre()) > 0) {
+                                    // Intercambia estudiantes[j] y estudiantes[j + 1]
+                                    Estudiante temp = estudiantes[j];
+                                    estudiantes[j] = estudiantes[j + 1];
+                                    estudiantes[j + 1] = temp;
+                                }
+                            }
+                        }
+                    }
+
+                    //Con esta parte se muestran los datos de los usuarios
+                    //Recorro con el for para posteriormente mostrarlos con sout y .getDatoAmostrar
+                    for (Estudiante estudiante : estudiantes) {
+                        if (estudiante != null) {
+                            System.out.println("Nombre: " + estudiante.getNombre());
+                            System.out.println("Edad: " + estudiante.getEdad());
+                            System.out.println("Calificación promedio: " + estudiante.getNotapromedio());
+                            System.out.println("Número de cursos aprobados: " + estudiante.getNum_cursosAprobados());
+                            System.out.println("-------------------------");
+                        }
+                    }
                     break;
                 case 10:
                     System.out.println("Ingrese la edad mínima:");

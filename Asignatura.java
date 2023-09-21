@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Asignatura {
     private String nombre;
     private String profesor;
+    
 
     public Asignatura(String nombre, String profesor) {
         this.nombre = nombre;
@@ -45,4 +46,6 @@ public class Asignatura {
 
         return new Asignatura(profesor, nombre);
     }
+
+    
 }
